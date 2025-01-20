@@ -117,7 +117,7 @@ model = Classification()
 
 # --------- Result
 
-torch.load("model.pth")
+torch.load("model.pth", weights_only=True)
 result = model.classify('data/test/hatshepsut.jpg')
 
-
+print(result)
