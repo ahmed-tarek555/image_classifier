@@ -115,35 +115,9 @@ class Classification(nn.Module):
 
 model = Classification()
 
-# --------- Training loop
-
-lr = 0.001
-max_iter = 1000
-
-optimizer = torch.optim.AdamW(model.parameters(), lr)
-
-for _ in range(max_iter):
-    # forward pass
-    xb, yb = get_batch()
-    logts, loss = model(xb, yb)
-
-    # backward pass
-    optimizer.zero_grad()
-    loss.backward()
-    print(f'Train loss is: {loss}')
-
-    # update
-    optimizer.step()
-    print(model.fc[0].weight.grad)
-
 # --------- Result
 
+torch.load("model.pth")
 result = model.classify('data/test/hatshepsut.jpg')
-print(result)
-print(classes)
-
-eval_loss = loss_eval('data/eval')
-print(f'Eval loss is: {eval_loss}')
-
 
 
