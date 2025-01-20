@@ -135,14 +135,10 @@ for _ in range(max_iter):
     optimizer.step()
     print(model.fc[0].weight.grad)
 
-# --------- Result
+torch.save(model, "model.pth")
 
-result = model.classify('data/test/hatshepsut.jpg')
-print(result)
 print(classes)
-
 eval_loss = loss_eval('data/eval')
 print(f'Eval loss is: {eval_loss}')
 
-torch.save(model, "model.pth")
 
