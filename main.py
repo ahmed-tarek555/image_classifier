@@ -5,8 +5,6 @@ import torch.nn.functional as F
 import numpy as np
 from PIL import Image
 import os
-import torch.serialization
-
 
 torch.manual_seed(21394)
 
@@ -119,8 +117,7 @@ model = Classification()
 
 # --------- Result
 
-torch.serialization.add_safe_globals([Classification])
 torch.load("model.pth")
-result = model.classify('data/test/humanpic.jpg')
+result = model.classify('data/test/Hatshepsut.jpg')
 
 print(result)
