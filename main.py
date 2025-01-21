@@ -118,6 +118,6 @@ model = Classification()
 # --------- Result
 
 torch.load("model.pth")
-result = model.classify('data/test/Hatshepsut.jpg')
+result = model.classify('data/test/Hatshepsut2.jpg')
 
 print(result)
