@@ -121,6 +121,6 @@ model = Classification()
 
 torch.serialization.add_safe_globals([Classification])
 torch.load("model.pth")
-result = model.classify('data/test/hatshepsut.jpg')
+result = model.classify('data/test/humanpic.jpg')
 
 print(result)
